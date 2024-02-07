@@ -45,13 +45,15 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
     };
     const activationTocken = createActivationTocken(user);
 
-    const activationUrl = `http://localhost:3000/activation/${activationTocken}`;
+    const activationUrl = `https://multivendor-e-com.vercel.app/activation/${activationTocken}`;
     try {
       await sendMail({
         email: user.email,
         subject: "Acitvate your account",
         message: `Hello ${user.name} please click this link to activate your accountto continue, Link : ${activationUrl} `,
       });
+
+      //
 
       res.status(200).json({
         success: true,
