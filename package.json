@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "build": "npm run lint && npm run test && npm run compile"
+    "build": "npm run init && npm run test && npm run compile"
   },
   "keywords": [],
   "author": "",
