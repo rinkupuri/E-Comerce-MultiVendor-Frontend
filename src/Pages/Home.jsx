@@ -5,7 +5,9 @@ import Header from "../Components/Layout/Header";
 import Layout from "../Components/Layout/Layout";
 import Hero from "../Components/Root/Hero/Hero";
 import Catogries from "../Components/Root/Catogries/Catogries";
-import BestDeals from "../Components/Root/BestDeals/BestDeals.jsx";
+import BestDeals from "../Components/Root/BestDeals/BestDeals";
+import FeaturedProduct from "../Components/Root/FeaturedProduct/FeaturedProduct";
+import Events from "../Components/Root/Events/Events";
 
 const Home = () => {
   useEffect(() => {
@@ -19,6 +21,8 @@ const Home = () => {
         <Hero />
         <Catogries />
         <BestDeals />
+        <FeaturedProduct />
+        <Events />
       </Layout>
     </div>
   );

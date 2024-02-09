@@ -36,8 +36,8 @@ const Header = ({ activeHeading }) => {
   return (
     <div className="homeContainer">
       <div className={style.section}>
-        <div className="hidden w-full  800px:h-[50px] 800px:my-[20px] 800px:flex items-center justify-between">
-          <div className="">
+        <div className=" w-full   800px:h-[50px] 800px:my-[20px] 800px:flex items-center justify-between">
+          <div className="py-3 flex relative items-center justify-center 800px:block">
             <Link to={"/"}>
               <img
                 src="https://shopo.quomodothemes.website/assets/images/logo.svg"
@@ -45,7 +45,7 @@ const Header = ({ activeHeading }) => {
               />
             </Link>
           </div>
-          <div className="w-[50%] relative">
+          <div className="w-full py-3  800px:w-[50%] relative">
             <input
               className="w-full h-[40px] px-2 border-[#3957bd] border-[2px] rounded-md"
               type="text"
@@ -53,7 +53,7 @@ const Header = ({ activeHeading }) => {
               value={searchTerm}
               onChange={handelSumbit}
             />
-            <div className="iconDiv absolute top-0 right-0 flex justify-center items-center w-[40px] h-full">
+            <div className="iconDiv  absolute top-0 right-0 flex justify-center items-center w-[40px] h-full">
               <AiOutlineSearch size={30} className="cursor-pointer p-[2px]" />
             </div>
             {searchData && searchData.length !== 0 ? (
@@ -79,7 +79,7 @@ const Header = ({ activeHeading }) => {
               </div>
             ) : null}
           </div>
-          <div className={style.button}>
+          <div className={`${style.button}  hidden 800px:flex`}>
             <h1 className="flex items-center text-[#fff]">
               Become Seller
               <IoIosArrowForward className="ml-1" />

@@ -18,7 +18,7 @@ const ProductCard = ({ data }) => {
   const product_name = name.replace(/\s+/g, "-");
   return (
     <div>
-      <div className="w-full h-fit bg-white rounded-lg  shadow-sm p-2 relative cursor-pointer  ">
+      <div className="w-full h-[380px]  bg-white rounded-lg  shadow-sm p-2 relative cursor-pointer  ">
         <div className="flex justify-end"></div>
         <Link to={`/product/${product_name}`}>
           <img
@@ -28,10 +28,10 @@ const ProductCard = ({ data }) => {
           />
         </Link>
         <Link to={"/"}>
-          <h5 className={`${style.shop_name}`}>{data?.shop.name}</h5>
+          <h5 className={`${style.shop_name} `}>{data?.shop.name}</h5>
         </Link>
         <Link to={`/product/${product_name}`}>
-          <h4 className="pb-3 font-[500]">
+          <h4 className="h-[84px] pb-3 font-[500]">
             {data?.name.length > 50
               ? data?.name.slice(0, 50) + "..."
               : data?.name}

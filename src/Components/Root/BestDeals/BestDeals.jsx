@@ -16,7 +16,7 @@ const BestDeals = () => {
       <div className={`${styles.heading}`}>
         <h1>Best Deals</h1>
       </div>
-      <div className="grid grid-cols-1 gap-[5px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl:grid-cols-5 xl:gap-[30px]">
+      <div className="grid  place-items-center grid-cols-2 gap-[10px] md:grid-cols-3  md:gap-[20px] lg:grid-cols-4 lg:gap-[25px] xl:grid-cols-5 xl:gap-[30px] pb-8 border-none">
         {data?.map((i, index) => (
           <ProductCard key={index} data={i} />
         ))}
