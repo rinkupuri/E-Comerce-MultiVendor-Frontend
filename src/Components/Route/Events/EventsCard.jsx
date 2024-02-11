@@ -1,5 +1,6 @@
 import React from "react";
-import styles from "../../../../../Styles/Style";
+import styles from "../../../Styles/Style";
+import CountDown from "./CountDown.jsx";
 
 const EventsCard = () => {
   return (
@@ -28,7 +29,7 @@ const EventsCard = () => {
             maiores?
           </div>
           <div className="flex  w-full items-center justify-evenly">
-            <div className="flex flex-[1] gap-4">
+            <div className="flex flex-[1] items-center justify-center gap-4">
               <h2
                 className={`text-[#d55b45] text-[18px]  line-through    font-[500]`}
               >
@@ -41,6 +42,15 @@ const EventsCard = () => {
             >
               72 Sold
             </div>
+          </div>
+          <div className="flex py-6 w-full items-center  justify-center">
+            <CountDown className="" />
+          </div>
+          <div className="flex items-center justify-evenly gap-4 w-full  py-6">
+            <button className={`${styles.button} text-white`}>
+              Get Detail
+            </button>
+            <button className={`${styles.button} text-white`}>Buy Now</button>
           </div>
         </div>
       </div>

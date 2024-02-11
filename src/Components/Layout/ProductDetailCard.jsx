@@ -30,14 +30,14 @@ const ProductDetailCard = ({ data, setOpen }) => {
 
             <div className="block 800px:flex gap-3 w-full">
               {/* images sectrion start from here  */}
-              <div className="flex 800px:overflow-y-scroll  flex-1 flex-wrap 800px:flex-col 800px:w-[50%]">
+              <div className="flex overflow-y-scroll  flex-1 flex-wrap  800px:w-[50%]">
                 <img src={mainSrc} alt="" className=" w-full  " />
-                <div className="flex 800px:grid 800px:grid-cols-2 py-4 gap-[5px] overflow-x-scroll w-full h-full">
+                <div className="flex 800px:grid 800px:grid-cols-2 py-4 gap-[5px]  w-full h-fit">
                   {data.image_Url.map((i, index) => (
                     <div
                       key={index}
                       onClick={() => setMainSrc(i.url)}
-                      className=" w-[150px]  800px:w-[100%] border-[2px] cursor-pointer "
+                      className=" w-full  h-fit border-[2px] cursor-pointer "
                     >
                       <img
                         className="w-full h-full object-contain"
@@ -63,7 +63,7 @@ const ProductDetailCard = ({ data, setOpen }) => {
                   </div>
                   <h5 className="text-[14px]">({data.shop.ratings})Ratings</h5>
                 </div>
-                <div className="vendorDetail flex items-center justify-center 800px:justify-start gap-3">
+                <div className="vendorDetail flex items-center justify-center  gap-3">
                   <img
                     className="w-[50px] h-[50px] rounded-full"
                     src={data.shop.shop_avatar.url}
@@ -76,8 +76,8 @@ const ProductDetailCard = ({ data, setOpen }) => {
                     </h2>
                   </div>
                 </div>
-                <div className="flex mt-3 py-6   px-4">
-                  <div className="flex flex-[2] justify-center 800px:justify-start">
+                <div className="flex mt-3 py-6 justify-center items-center   px-4">
+                  <div className="flex flex-[2] justify-center ">
                     <h2 className={`${styles.productDiscountPrice}`}>
                       {data.discount_price === 0
                         ? data.price
@@ -90,7 +90,7 @@ const ProductDetailCard = ({ data, setOpen }) => {
                   </div>
                 </div>
                 <div className="flex py-6">
-                  <div className="flex-1 flex justify-center 800px:justify-start">
+                  <div className="flex-1 flex justify-center ">
                     <button
                       disabled={count > 1 ? false : true}
                       onClick={() => setCount((count) => count - 1)}
@@ -118,7 +118,7 @@ const ProductDetailCard = ({ data, setOpen }) => {
                     </button>
                   </div>
 
-                  <div className="flex-1 flex  items-center justify-center 800px:justify-start">
+                  <div className="flex-1 flex  items-center justify-center ">
                     <button
                       onClick={() => setSelect(!select)}
                       className={` border py-2 px-5 rounded-md flex gap-2 justify-center items-center`}
@@ -133,7 +133,7 @@ const ProductDetailCard = ({ data, setOpen }) => {
                   </div>
                 </div>
                 <div className={` w-full text-[#fff] flex justify-center`}>
-                  <button className={`${styles.button} rounded-sm w-[90%]`}>
+                  <button className={`${styles.button} !rounded-sm w-[90%]`}>
                     Add to Cart
                   </button>
                 </div>
