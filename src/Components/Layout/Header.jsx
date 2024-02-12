@@ -27,7 +27,7 @@ const Header = ({ activeHeading }) => {
     if (term.trim() === "") return setSearchData(null);
   };
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 70) {
+    if (window.scrollY > 86) {
       setActive(true);
     } else {
       setActive(false);
@@ -87,81 +87,83 @@ const Header = ({ activeHeading }) => {
           </div>
         </div>
       </div>
-      <div
-        className={`${
-          active ? "shadow-sm fixed top-0 left-0" : null
-        } hidden transition z-50  800px:flex items-center justify-between w-full h-[70px]  bg-[#3321c8]`}
-      >
+      <div className="h-[70px]">
         <div
-          className={`${style.section} ${style.noramlFlex} justify-between `}
+          className={`${
+            active ? "shadow-sm fixed top-0 left-0" : null
+          } hidden transition z-50  800px:flex items-center justify-between w-full h-[70px]  bg-[#3321c8]`}
         >
-          {/* Categories  */}
           <div
-            className={
-              "relative top-0 left- h-[60px] mt-[10px] w-[270px] hidden 1000px:block"
-            }
+            className={`${style.section} ${style.noramlFlex} justify-between `}
           >
-            <button
-              onClick={() => setDropDown(!dropDown)}
-              className="bg-white rounded-t-[5px] absolute top-0 left-0 h-full z-0 w-[270px]"
+            {/* Categories  */}
+            <div
+              className={
+                "relative top-0 left- h-[60px] mt-[10px] w-[270px] hidden 1000px:block"
+              }
             >
-              All Categories
-            </button>
-            {dropDown ? (
-              <>
-                <DropDown
-                  categories={categoriesData}
-                  setDropDown={setDropDown}
+              <button
+                onClick={() => setDropDown(!dropDown)}
+                className="bg-white rounded-t-[5px] absolute top-0 left-0 h-full z-0 w-[270px]"
+              >
+                All Categories
+              </button>
+              {dropDown ? (
+                <>
+                  <DropDown
+                    categories={categoriesData}
+                    setDropDown={setDropDown}
+                  />
+                  <IoIosArrowDown size={30} className="absolute top-4 left-2" />
+                </>
+              ) : (
+                <BiMenuAltLeft
+                  size={30}
+                  className={"absolute z-[1] top-3 left-2"}
                 />
-                <IoIosArrowDown size={30} className="absolute top-4 left-2" />
-              </>
-            ) : (
-              <BiMenuAltLeft
-                size={30}
-                className={"absolute z-[1] top-3 left-2"}
-              />
-            )}
-          </div>
+              )}
+            </div>
 
-          {/* navitems */}
-          <div className={`${style.noramlFlex}`}>
-            <Navbar active={activeHeading} />
-          </div>
-          <div className={`${style.noramlFlex}`}>
-            <div className={`${style.noramlFlex}  mr-[15px]`}>
-              <div className="relative">
-                <AiOutlineHeart
-                  className="m-[5px] cursor-pointer"
-                  fill="rgb(255,255,255)"
-                  size={25}
-                />
-                <span className="absolute top-0 right-0 bg-[#3bc177] flex items-center justify-center rounded-md w-4 h-4 text-white font-mono text-[12px] leading-3 z-20">
-                  0
-                </span>
-              </div>
+            {/* navitems */}
+            <div className={`${style.noramlFlex}`}>
+              <Navbar active={activeHeading} />
             </div>
-            <div className={`${style.noramlFlex}  mr-[15px]`}>
-              <div className="relative">
-                <AiOutlineShoppingCart
-                  className="m-[5px] cursor-pointer"
-                  fill="rgb(255,255,255)"
-                  size={25}
-                />
-                <span className="absolute top-0 right-0 bg-[#3bc177] flex items-center justify-center rounded-md w-4 h-4 text-white font-mono text-[12px] leading-3 z-20">
-                  0
-                </span>
+            <div className={`${style.noramlFlex}`}>
+              <div className={`${style.noramlFlex}  mr-[15px]`}>
+                <div className="relative">
+                  <AiOutlineHeart
+                    className="m-[5px] cursor-pointer"
+                    fill="rgb(255,255,255)"
+                    size={25}
+                  />
+                  <span className="absolute top-0 right-0 bg-[#3bc177] flex items-center justify-center rounded-md w-4 h-4 text-white font-mono text-[12px] leading-3 z-20">
+                    0
+                  </span>
+                </div>
               </div>
-            </div>
-            <div className={`${style.noramlFlex}  mr-[15px]`}>
-              <div className="relative">
-                <CgProfile
-                  className="m-[5px] cursor-pointer"
-                  fill="rgb(255,255,255)"
-                  size={25}
-                />
-                <span className="absolute top-0 right-0 bg-[#3bc177] flex items-center justify-center rounded-md w-4 h-4 text-white font-mono text-[12px] leading-3 z-20">
-                  0
-                </span>
+              <div className={`${style.noramlFlex}  mr-[15px]`}>
+                <div className="relative">
+                  <AiOutlineShoppingCart
+                    className="m-[5px] cursor-pointer"
+                    fill="rgb(255,255,255)"
+                    size={25}
+                  />
+                  <span className="absolute top-0 right-0 bg-[#3bc177] flex items-center justify-center rounded-md w-4 h-4 text-white font-mono text-[12px] leading-3 z-20">
+                    0
+                  </span>
+                </div>
+              </div>
+              <div className={`${style.noramlFlex}  mr-[15px]`}>
+                <div className="relative">
+                  <CgProfile
+                    className="m-[5px] cursor-pointer"
+                    fill="rgb(255,255,255)"
+                    size={25}
+                  />
+                  <span className="absolute top-0 right-0 bg-[#3bc177] flex items-center justify-center rounded-md w-4 h-4 text-white font-mono text-[12px] leading-3 z-20">
+                    0
+                  </span>
+                </div>
               </div>
             </div>
           </div>

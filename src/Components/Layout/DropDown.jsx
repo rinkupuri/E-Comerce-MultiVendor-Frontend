@@ -3,10 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { categoriesData } from "../../Static/static";
 import styles from "../../Styles/Style";
 
-const DropDown = (categories, setDropDown) => {
+const DropDown = ({ categories, setDropDown }) => {
   const nevigate = useNavigate();
   const submitHandler = (i) => {
     const name = i.title.replace(/\s/g, "-");
+    setDropDown(false);
     nevigate(`/product?categories=${name}`);
   };
   return (

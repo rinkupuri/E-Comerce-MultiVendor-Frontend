@@ -4,6 +4,7 @@ const LoadUserRequest = createAction("LoadUserRequest");
 const LoadUserSuccesss = createAction("LoadUserSuccesss");
 const LoadUserFail = createAction("LoadUserFail");
 const ClearError = createAction("ClearError");
+const ActivePage = createAction("ActivePage");
 
 const INITIAL_STATE = {
   isAuthenticated: true,
@@ -29,6 +30,9 @@ export const userReducers = createReducer(
       })
       .addCase(ClearError, (state) => {
         state.error = null;
+      })
+      .addCase(ActivePage, (state, action) => {
+        state.activePage = action.payload;
       });
   }
 );

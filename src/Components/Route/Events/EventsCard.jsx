@@ -2,10 +2,10 @@ import React from "react";
 import styles from "../../../Styles/Style";
 import CountDown from "./CountDown.jsx";
 
-const EventsCard = () => {
+const EventsCard = ({ active }) => {
   return (
-    <div>
-      <div className="grid w-full p-12 bg-white h-fit   place-items-center grid-cols-1 800px:grid-cols-2 gap-[10px]  pb-8 border-none">
+    <div className={`${active ? "mb-12" : "unset"}`}>
+      <div className="grid w-full  p-12 bg-white h-fit   place-items-center grid-cols-1 800px:grid-cols-2 gap-[10px]  pb-8 border-none">
         <div className="flex w-full">
           <img
             src="https://m.media-amazon.com/images/I/31Vle5fVdaL.jpg"
