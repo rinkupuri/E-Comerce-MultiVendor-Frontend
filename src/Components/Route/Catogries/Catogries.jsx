@@ -28,6 +28,7 @@ const Catogries = () => {
             };
             return (
               <div
+                key={index}
                 onClick={() => handelSubmit(i)}
                 className="flex justify-between items-center w-full cursor-pointer   "
               >

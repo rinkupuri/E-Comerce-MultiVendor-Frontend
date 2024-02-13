@@ -25,7 +25,10 @@ const Login = () => {
         },
         { withCredentials: true }
       )
-      .then((responce) => navigate("/"))
+      .then((responce) => {
+        navigate("/");
+        window.location.reload(true);
+      })
       .catch((err) => toast.error("Invalid Credentials"))
       .finally(() => setLoading(false));
   };

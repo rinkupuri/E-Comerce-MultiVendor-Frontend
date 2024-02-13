@@ -1,13 +1,13 @@
 import { createAction, createReducer } from "@reduxjs/toolkit";
 
 const LoadUserRequest = createAction("LoadUserRequest");
-const LoadUserSuccesss = createAction("LoadUserSuccesss");
-const LoadUserFail = createAction("LoadUserFail");
+const LoadUserSuccess = createAction("LoadUserSuccess");
+const LoadUserFailed = createAction("LoadUserFailed");
 const ClearError = createAction("ClearError");
 const ActivePage = createAction("ActivePage");
 
 const INITIAL_STATE = {
-  isAuthenticated: true,
+  isAuthenticated: false,
 };
 
 export const userReducers = createReducer(
@@ -18,15 +18,15 @@ export const userReducers = createReducer(
       .addCase(LoadUserRequest, (state) => {
         state.loading = true;
       })
-      .addCase(LoadUserSuccesss, (state, action) => {
+      .addCase(LoadUserSuccess, (state, action) => {
         state.loading = false;
         state.isAuthenticated = true;
         state.user = action.payload;
       })
-      .addCase(LoadUserFail, (state, action) => {
+      .addCase(LoadUserFailed, (state, action) => {
         state.loading = false;
-        state.isAuthenticated = true;
-        state.user = action.payload;
+        state.isAuthenticated = false;
+        state.error = action.payload;
       })
       .addCase(ClearError, (state) => {
         state.error = null;

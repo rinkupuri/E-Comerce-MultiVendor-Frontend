@@ -9,14 +9,20 @@ import {
 } from "react-icons/ai";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { BiMenuAltLeft } from "react-icons/bi";
-import { CgProfile, CgUser } from "react-icons/cg";
+import { CgProfile } from "react-icons/cg";
 import DropDown from "./DropDown";
 import Navbar from "./Navbar";
+import { useSelector } from "react-redux";
+import { image_Url } from "../../Server/server";
+import Cart from "../Cart/Cart.jsx";
+
 const Header = ({ activeHeading }) => {
+  const { isAuthenticated, user } = useSelector((state) => state.user);
   const [searchTerm, setSearchTerm] = useState();
   const [searchData, setSearchData] = useState();
   const [dropDown, setDropDown] = useState();
   const [active, setActive] = useState(false);
+  const [cart, setCart] = useState(false);
   const handelSumbit = (e) => {
     const term = e.target.value;
     setSearchTerm(term);
@@ -87,7 +93,7 @@ const Header = ({ activeHeading }) => {
           </div>
         </div>
       </div>
-      <div className="h-[70px]">
+      <div className="800px:h-[70px]">
         <div
           className={`${
             active ? "shadow-sm fixed top-0 left-0" : null
@@ -130,19 +136,21 @@ const Header = ({ activeHeading }) => {
             </div>
             <div className={`${style.noramlFlex}`}>
               <div className={`${style.noramlFlex}  mr-[15px]`}>
-                <div className="relative">
-                  <AiOutlineHeart
-                    className="m-[5px] cursor-pointer"
-                    fill="rgb(255,255,255)"
-                    size={25}
-                  />
-                  <span className="absolute top-0 right-0 bg-[#3bc177] flex items-center justify-center rounded-md w-4 h-4 text-white font-mono text-[12px] leading-3 z-20">
-                    0
-                  </span>
-                </div>
+                <Link to={"/product/wishlist"}>
+                  <div className="relative">
+                    <AiOutlineHeart
+                      className="m-[5px] cursor-pointer"
+                      fill="rgb(255,255,255)"
+                      size={25}
+                    />
+                    <span className="absolute top-0 right-0 bg-[#3bc177] flex items-center justify-center rounded-md w-4 h-4 text-white font-mono text-[12px] leading-3 z-20">
+                      0
+                    </span>
+                  </div>
+                </Link>
               </div>
               <div className={`${style.noramlFlex}  mr-[15px]`}>
-                <div className="relative">
+                <div onClick={() => setCart(true)} className="relative">
                   <AiOutlineShoppingCart
                     className="m-[5px] cursor-pointer"
                     fill="rgb(255,255,255)"
@@ -153,22 +161,37 @@ const Header = ({ activeHeading }) => {
                   </span>
                 </div>
               </div>
+
               <div className={`${style.noramlFlex}  mr-[15px]`}>
                 <div className="relative">
-                  <CgProfile
-                    className="m-[5px] cursor-pointer"
-                    fill="rgb(255,255,255)"
-                    size={25}
-                  />
-                  <span className="absolute top-0 right-0 bg-[#3bc177] flex items-center justify-center rounded-md w-4 h-4 text-white font-mono text-[12px] leading-3 z-20">
-                    0
-                  </span>
+                  {isAuthenticated ? (
+                    <Link to={"/profile"}>
+                      <img
+                        width={25}
+                        height={25}
+                        className="object-cover rounded-full"
+                        src={`${image_Url}${user?.avatar.url}`}
+                        alt=""
+                      />
+                    </Link>
+                  ) : (
+                    <Link to={"/login"}>
+                      <CgProfile
+                        className="m-[5px] cursor-pointer"
+                        fill="rgb(255,255,255)"
+                        size={25}
+                      />
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Cart Drawer */}
+      {cart && <Cart setCart={setCart} />}
     </div>
   );
 };

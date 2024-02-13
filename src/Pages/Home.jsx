@@ -6,24 +6,28 @@ import BestDeals from "../Components/Route/BestDeals/BestDeals";
 import FeaturedProduct from "../Components/Route/FeaturedProduct/FeaturedProduct";
 import Events from "../Components/Route/Events/Events";
 import Sponsored from "../Components/Sponsored/Sponsored";
+import { loadUser } from "../context/actions/user";
+import Store from "../context/Store";
+import { useSelector } from "react-redux";
 
 const Home = () => {
-  useEffect(() => {
-    return async () => {
-      // Store.dispatch(loadUser);
-    };
-  }, []);
+  const { loading } = useSelector((state) => state.user);
+
   return (
-    <div>
-      <Layout>
-        <Hero />
-        <Catogries />
-        <BestDeals />
-        <FeaturedProduct />
-        <Events />
-        <Sponsored />
-      </Layout>
-    </div>
+    <>
+      {loading ? null : (
+        <div>
+          <Layout>
+            <Hero />
+            <Catogries />
+            <BestDeals />
+            <FeaturedProduct />
+            <Events />
+            <Sponsored />
+          </Layout>
+        </div>
+      )}
+    </>
   );
 };
 

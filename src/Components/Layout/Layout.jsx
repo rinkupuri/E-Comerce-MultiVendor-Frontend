@@ -8,6 +8,7 @@ const Layout = ({ children }) => {
       {/* <Drawer /> */}
       <Header activeHeading={1} />
       {children}
+      <Footer />
     </div>
   );
 };

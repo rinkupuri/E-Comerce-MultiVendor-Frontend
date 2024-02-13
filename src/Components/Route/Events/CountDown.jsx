@@ -37,7 +37,6 @@ const CountDown = ({ data }) => {
     return timeLeft;
   }
   const timerComponents = Object.keys(timeLeft).map((interval) => {
-    console.log(timeLeft);
     if (!timeLeft[interval]) {
       return null;
     }
