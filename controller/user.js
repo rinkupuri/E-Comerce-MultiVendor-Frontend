@@ -45,7 +45,7 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
     };
     const activationTocken = createActivationTocken(user);
 
-    const activationUrl = `https://multivendor-e-com.vercel.app/activation/${activationTocken}`;
+    const activationUrl = `http://localhost:3000/activation/${activationTocken}`;
     try {
       await sendMail({
         email: user.email,
@@ -143,5 +143,25 @@ router.get("/getuser", isAuthenticated, async (req, res) => {
   const user = req.body;
   res.status(200).json({ user });
 });
+
+// logout User
+
+router.get(
+  "/logout",
+  isAuthenticated,
+  catchAsyncErrors(async (req, res, next) => {
+    try {
+      res.cookie("token", null, {
+        expires: new Date(Date.now()),
+        httpOnly: true,
+      });
+      res.status(200).json({ success: true, message: "Log out Success" });
+    } catch (error) {
+      next(
+        new ErroHandler("Internal Server Error! Try Again after some time", 500)
+      );
+    }
+  })
+);
 
 module.exports = router;
