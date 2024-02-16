@@ -11,12 +11,15 @@ import EventsPage from "./Pages/EventsPage";
 import FAQPage from "./Pages/FAQ";
 import Wishlist from "./Pages/Wishlist";
 import ProductPage from "./Pages/ProductPage.jsx";
+import Profile from "./Pages/Profile.jsx";
+import ShopCreatePage from "./Pages/ShopCreatePage.jsx";
 import Store from "./context/Store.js";
 import { loadUser } from "./context/actions/user.js";
 import { useSelector } from "react-redux";
+import PortectedRoute from "./portectedRoute.js";
 
 const App = () => {
-  const { loading } = useSelector((state) => state.user);
+  const { loading, isAuthenticated } = useSelector((state) => state.user);
   useEffect(() => {
     return async () => {
       Store.dispatch(loadUser);
@@ -38,6 +41,22 @@ const App = () => {
               <Route path="/faq" element={<FAQPage />} />
               <Route path="/product/:name" element={<ProductPage />} />
               <Route path="/product/wishlist" element={<Wishlist />} />
+              <Route
+                path="/profile"
+                element={
+                  <PortectedRoute isAuthenticated={isAuthenticated}>
+                    <Profile />
+                  </PortectedRoute>
+                }
+              />
+              <Route
+                path="/shop-create"
+                element={
+                  <PortectedRoute isAuthenticated={isAuthenticated}>
+                    <ShopCreatePage />
+                  </PortectedRoute>
+                }
+              />
             </Routes>
           </BrowserRouter>
 
