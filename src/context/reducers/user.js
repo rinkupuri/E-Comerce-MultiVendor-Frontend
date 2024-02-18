@@ -8,6 +8,8 @@ const ActivePage = createAction("ActivePage");
 
 const INITIAL_STATE = {
   isAuthenticated: false,
+  user: null,
+  loading: true,
 };
 
 export const userReducers = createReducer(

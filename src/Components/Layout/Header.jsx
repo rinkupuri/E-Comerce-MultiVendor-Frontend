@@ -28,6 +28,8 @@ import facebookPng from "../../Images/facebook.png";
 import instagramPng from "../../Images/instagram.png";
 import twitterPng from "../../Images/twitter.png";
 import youtubePng from "../../Images/youtube (1).png";
+import menu from "../../Images/menu.png";
+import cartIcon from "../../Images/shopping-bag.png";
 
 const Header = ({ activeHeading }) => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -110,10 +112,12 @@ const Header = ({ activeHeading }) => {
             ) : null}
           </div>
           <div className={`${style.button}  hidden 800px:flex`}>
-            <h1 className="flex items-center text-[#fff]">
-              Become Seller
-              <IoIosArrowForward className="ml-1" />
-            </h1>
+            <Link to={"/login-seller"}>
+              <h1 className="flex items-center text-[#fff]">
+                Become Seller
+                <IoIosArrowForward className="ml-1" />
+              </h1>
+            </Link>
           </div>
         </div>
       </div>
@@ -225,7 +229,7 @@ const Header = ({ activeHeading }) => {
           className={`${style.section} *:stroke-[1.5px] flex justify-between  items-center`}
         >
           <div onClick={() => setDrawer(true)} className="flex cursor-pointer">
-            <BiMenuAltLeft className="stroke-[0.2px]" size={40} />
+            <img height={30} width={30} src={menu} alt="" />
           </div>
           <div className="flex cursor-pointer">
             <Link to={"/"}>
@@ -236,8 +240,8 @@ const Header = ({ activeHeading }) => {
             </Link>
           </div>
           <div className="flex cursor-pointer relative">
-            <AiOutlineShoppingCart size={40} />
-            <span className="absolute top-[-2px] right-[-6px] rounded-full flex justify-center items-center text-[15px]  bg-green-500 h-[20px] w-[20px] z-[52]">
+            <img width={30} height={30} src={cartIcon} alt="" />
+            <span className="absolute top-[-4px] right-[-10px] rounded-full flex justify-center items-center text-[15px]  bg-green-500 h-[20px] w-[20px] z-[52]">
               0
             </span>
           </div>
@@ -333,6 +337,7 @@ const Header = ({ activeHeading }) => {
           {/* become Seller button */}
           <div className="flex w-full px-5">
             <button
+              onClick={() => navigate("/login-seller")}
               className={`${style.button} flex justify-center items-center text-[#fff]`}
             >
               <span>Become Seller</span>
@@ -351,7 +356,7 @@ const Header = ({ activeHeading }) => {
                     alt=""
                   />
                   <h1 className={`text-[20px] ;font-[500] pl-2`}>
-                    {user.name}
+                    {user?.name}
                   </h1>
                 </Link>
                 <div className="flex justify-center items-center">
