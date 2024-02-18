@@ -11,11 +11,7 @@ const LoginPage = () => {
       navigate("/");
     }
   }, [isAuthenticated]);
-  return (
-    <>
-      <Login />
-    </>
-  );
+  return <>{!isAuthenticated && <Login />}</>;
 };
 
 export default LoginPage;

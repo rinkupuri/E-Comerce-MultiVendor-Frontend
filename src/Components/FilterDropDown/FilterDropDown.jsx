@@ -22,13 +22,13 @@ const FilterDropDown = ({ page }) => {
     } else {
       setSearches(null);
     }
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 86) {
-        setScroll(true);
-      } else {
-        setScroll(false);
-      }
-    });
+    // window.addEventListener("scroll", () => {
+    //   if (window.scrollY > 86) {
+    //     setScroll(true);
+    //   } else {
+    //     setScroll(false);
+    //   }
+    // });
   }, [searchParam]);
   const handelchech = (event, i) => {
     const searchSlug = searchesOld?.split(",");
@@ -66,7 +66,7 @@ const FilterDropDown = ({ page }) => {
     <div
       className={`${
         scroll ? "fixed top-[70px]" : "absolute top-[0px]"
-      }  flex-[1]  bottom-0 left-0 w-[200px] overflow-y-scroll h-[115%] bg-white`}
+      }  flex-[1]  bottom-0 left-0 w-[200px] overflow-y-scroll h-[100%] bg-white`}
     >
       {searches && (
         <div className="flex flex-col items-center justify-center">

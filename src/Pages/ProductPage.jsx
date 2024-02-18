@@ -10,6 +10,7 @@ import {
   AiOutlineStar,
 } from "react-icons/ai";
 import ProductCard from "../Components/Layout/ProductCard";
+import SuggestedSection from "../Components/SuggestedSection/SuggestedSection.jsx";
 
 const ProductPage = () => {
   const { name } = useParams();
@@ -170,16 +171,7 @@ const ProductPage = () => {
             {/* product Details Section */}
             <ProductDetails data={data} />
             {/* Featured Product Section */}
-            <div className="flex flex-col my-5">
-              <h1 className={`${styles.heading} 800px:justify-start`}>
-                Featured Product
-              </h1>
-              <div className="grid gap-3 my-4 grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
-                {productData.slice(0, 6).map((i, index) => {
-                  return <ProductCard data={i} />;
-                })}
-              </div>
-            </div>
+            <SuggestedSection />
           </div>
         </Layout>
       )}

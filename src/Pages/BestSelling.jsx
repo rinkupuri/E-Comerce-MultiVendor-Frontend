@@ -30,12 +30,14 @@ const BestSelling = () => {
 
   return (
     <Layout>
-      <div className="productpage  relative 800px:flex w-full">
+      <div className="productpage  relative 800px:flex justify-center items-center w-full">
         <div className="hidden 800px:block w-[300px] h-full">
           <FilterDropDown page={"best-selling"} />
         </div>
 
-        <div className={`${styles.section} w-full h-full pr-10 `}>
+        <div
+          className={`${styles.section} 800px:w-full justify-center items-center h-full 800px:pr-10  `}
+        >
           {data && data.toString() ? (
             <div className="grid py-6 place-items-center grid-cols-2 gap-[10px] md:grid-cols-3  md:gap-[20px] lg:grid-cols-4 lg:gap-[25px] xl:grid-cols-5 xl:gap-[30px] pb-8 border-none">
               {
