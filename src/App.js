@@ -39,62 +39,62 @@ const App = () => {
 
   return (
     <>
-      {!loading && !isSellerloading && (
-        <>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/login-seller" element={<SellerLoginPage />} />
-              <Route path="/register" element={<SignUpPage />} />
-              <Route path="/" element={<Home />} />
-              <Route path="/product" element={<CollectionPage />} />
-              <Route path="/best-selling" element={<BestSelling />} />
-              <Route path="/events" element={<EventsPage />} />
-              <Route path="/faq" element={<FAQPage />} />
-              <Route path="/product/:name" element={<ProductPage />} />
-              <Route
-                path="/user/activation/:token"
-                element={<ActivationPage />}
-              />
-              <Route
-                path="/seller/activation/:token"
-                element={<SellerActivationPage />}
-              />
-              <Route path="/product/wishlist" element={<Wishlist />} />
-              <Route
-                path="/profile"
-                element={
-                  <PortectedRoute>
-                    <Profile />
-                  </PortectedRoute>
-                }
-              />
-              <Route
-                path="/dashboard"
-                element={
-                  <SellerProtectedRoute>
-                    <SellerHome />
-                  </SellerProtectedRoute>
-                }
-              />
-              <Route path="/shop-create" element={<ShopCreatePage />} />
-            </Routes>
-          </BrowserRouter>
+      {/* {!loading && !isSellerloading && ( */}
+      <>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/login-seller" element={<SellerLoginPage />} />
+            <Route path="/register" element={<SignUpPage />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/product" element={<CollectionPage />} />
+            <Route path="/best-selling" element={<BestSelling />} />
+            <Route path="/events" element={<EventsPage />} />
+            <Route path="/faq" element={<FAQPage />} />
+            <Route path="/product/:name" element={<ProductPage />} />
+            <Route
+              path="/user/activation/:token"
+              element={<ActivationPage />}
+            />
+            <Route
+              path="/seller/activation/:token"
+              element={<SellerActivationPage />}
+            />
+            <Route path="/product/wishlist" element={<Wishlist />} />
+            <Route
+              path="/profile"
+              element={
+                <PortectedRoute>
+                  <Profile />
+                </PortectedRoute>
+              }
+            />
+            <Route
+              path="/dashboard"
+              element={
+                <SellerProtectedRoute>
+                  <SellerHome />
+                </SellerProtectedRoute>
+              }
+            />
+            <Route path="/shop-create" element={<ShopCreatePage />} />
+          </Routes>
+        </BrowserRouter>
 
-          <ToastContainer
-            position="top-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="colored"
-          />
-        </>
-      )}
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
+      </>
+      {/* )} */}
     </>
   );
 };
