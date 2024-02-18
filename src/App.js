@@ -39,11 +39,11 @@ const App = () => {
 
   return (
     <>
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
       {loading && !isSellerloading && (
         <>
           <BrowserRouter>
