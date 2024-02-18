@@ -6,7 +6,7 @@ const PortectedRoute = ({ children }) => {
   const { isAuthenticated } = useSelector((state) => state.user);
 
   if (!isAuthenticated) {
-    return <Navigate to={"/"} />;
+    return <Navigate to={"/login"} />;
   } else {
     return children;
   }
@@ -17,12 +17,11 @@ const SellerProtectedRoute = ({ children }) => {
     (state) => state.seller
   );
 
-  if (seller)
-    if (!isSellerAuthenticated) {
-      return <Navigate to={`/dashboard`} />;
-    } else {
-      return children;
-    }
+  if (!isSellerAuthenticated) {
+    return <Navigate to={`/login-seller`} />;
+  } else {
+    return children;
+  }
 };
 
 export { PortectedRoute, SellerProtectedRoute };

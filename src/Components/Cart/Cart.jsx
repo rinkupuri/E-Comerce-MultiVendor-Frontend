@@ -22,7 +22,7 @@ const Cart = ({ setCart }) => {
     },
   ];
   return (
-    <div className="fixed z-[20]  w-full h-full top-0 right-0 flex justify-end items-end bg-[rgba(0,0,0,0.19)]">
+    <div className="fixed z-[50]  w-full h-full top-0 right-0 flex justify-end items-end bg-[rgba(0,0,0,0.19)]">
       <div onClick={() => setCart(false)} className="w-[75%] h-full"></div>
       <div className="flex z-[20] flex-col h-full w-[25%] bg-white">
         <div className="flex flex-row p-2 justify-end items-end w-full h-fit m-2">

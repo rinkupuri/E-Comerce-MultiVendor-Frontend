@@ -26,10 +26,12 @@ import {
   PortectedRoute,
   SellerProtectedRoute,
 } from "./Routes/portectedRoute.js";
+import SellerLoader from "./Components/Loaders/SellerLoader.jsx";
 
 const App = () => {
   const { loading } = useSelector((state) => state.user);
   const { isSellerloading } = useSelector((state) => state.seller);
+
   useEffect(() => {
     return async () => {
       Store.dispatch(loadUser);
@@ -39,16 +41,16 @@ const App = () => {
 
   return (
     <>
-      {/* <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </BrowserRouter> */}
-      {loading && !isSellerloading && (
+      {loading ? (
+        <SellerLoader />
+      ) : isSellerloading ? (
+        <SellerLoader />
+      ) : (
         <>
           <BrowserRouter>
             <Routes>
               <Route path="/login" element={<LoginPage />} />
+              <Route path="/loader" element={<SellerLoader />} />
               <Route path="/login-seller" element={<SellerLoginPage />} />
               <Route path="/register" element={<SignUpPage />} />
               <Route path="/" element={<Home />} />
