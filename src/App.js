@@ -39,7 +39,12 @@ const App = () => {
 
   return (
     <>
-      {loading ? null : (
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
+      {loading && !isSellerloading && (
         <>
           <BrowserRouter>
             <Routes>

@@ -15,18 +15,16 @@ const Home = () => {
 
   return (
     <>
-      {loading ? null : (
-        <div>
-          <Layout>
-            <Hero />
-            <Catogries />
-            <BestDeals />
-            <FeaturedProduct />
-            <Events />
-            <Sponsored />
-          </Layout>
-        </div>
-      )}
+      <div>
+        <Layout>
+          <Hero />
+          <Catogries />
+          <BestDeals />
+          <FeaturedProduct />
+          <Events />
+          <Sponsored />
+        </Layout>
+      </div>
     </>
   );
 };
