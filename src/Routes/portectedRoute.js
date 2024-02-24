@@ -16,8 +16,7 @@ const SellerProtectedRoute = ({ children }) => {
   const { isSellerAuthenticated, seller } = useSelector(
     (state) => state.seller
   );
-
-  if (!isSellerAuthenticated) {
+  if (!seller) {
     return <Navigate to={`/login-seller`} />;
   } else {
     return children;

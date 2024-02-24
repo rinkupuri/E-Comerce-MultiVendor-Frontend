@@ -22,7 +22,9 @@ export const sellerReducer = createReducer(INITIAL_STATE, (builder) =>
       state.isSellerLoading = false;
     })
     .addCase(LoadSellerFailed, (state, action) => {
+      state.isSellerAuthenticated = false;
       state.isSellerLoading = false;
+      state.seller = null;
       state.seller_error = action.payload;
     })
     .addCase(ClearError, (state) => {

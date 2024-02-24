@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "../../Styles/Style";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import {
   AiFillDelete,
-  AiOutlineArrowLeft,
   AiOutlineArrowRight,
   AiOutlineCamera,
   AiOutlinePlus,
@@ -13,13 +12,11 @@ import { Link } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
 
 const ProfileView = ({ active }) => {
-  const { user, error, successMessage } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.user);
   const [name, setName] = useState(user && user.name);
   const [email, setEmail] = useState(user && user.email);
   const [phoneNumber, setPhoneNumber] = useState(user && user.phoneNumber);
   const [password, setPassword] = useState("");
-  const [avatar, setAvatar] = useState(null);
-  const dispatch = useDispatch();
   const handleImage = () => {};
   const handleSubmit = () => {};
 
@@ -203,7 +200,7 @@ const AllOrders = () => {
       maxWidth: 150,
       flex: 0.7,
       type: "number",
-      renderCell: () => {
+      renderCell: (param) => {
         return (
           <>
             <Link to={"/user/order/${param.id}"}>
@@ -225,6 +222,36 @@ const AllOrders = () => {
       ],
       totalPrice: 120,
       orderStatus: "Processing",
+    },
+    {
+      _id: "7463hvbfbhfbrtr28820221",
+      orderItems: [
+        {
+          name: "Iphone 14 pro max1",
+        },
+      ],
+      totalPrice: 120,
+      orderStatus: "Processing1",
+    },
+    {
+      _id: "7463hvbfbhfbrtr28820221",
+      orderItems: [
+        {
+          name: "Iphone 14 pro max2",
+        },
+      ],
+      totalPrice: 120,
+      orderStatus: "Processing2",
+    },
+    {
+      _id: "7463hvbfbhfbrtr28820221",
+      orderItems: [
+        {
+          name: "Iphone 14 pro max3",
+        },
+      ],
+      totalPrice: 120,
+      orderStatus: "Processing3",
     },
   ];
 

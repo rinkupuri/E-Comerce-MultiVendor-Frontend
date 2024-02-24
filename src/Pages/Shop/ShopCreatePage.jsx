@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "../Styles/Style";
+import styles from "../../Styles/Style";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { RxAvatar } from "react-icons/rx";
 import axios from "axios";
-import { server } from "../Server/server";
-import { Bounce, ToastContainer, toast } from "react-toastify";
+import { server } from "../../Server/server";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useSelector } from "react-redux";

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Layout from "../Components/Layout/Layout";
 import Hero from "../Components/Route/Hero/Hero";
 import Catogries from "../Components/Route/Catogries/Catogries";

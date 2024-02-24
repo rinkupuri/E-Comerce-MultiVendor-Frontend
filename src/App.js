@@ -17,8 +17,12 @@ import EventsPage from "./Pages/EventsPage";
 import FAQPage from "./Pages/FAQ";
 import Wishlist from "./Pages/Wishlist";
 import ProductPage from "./Pages/ProductPage.jsx";
+import SellerProfile from "./Pages/Shop/SellerProfile.jsx";
+import SellerCreateProduct from "./Pages/Shop/SellerCreateProduct.jsx";
 import Profile from "./Pages/Profile.jsx";
-import ShopCreatePage from "./Pages/ShopCreatePage.jsx";
+import ShopCreatePage from "./Pages/Shop/ShopCreatePage.jsx";
+import SellerAllProduct from "./Pages/Shop/SellerAllProduct.jsx";
+import SellerCreateEvent from "./Pages/Shop/SellerCreateEvent.jsx";
 import Store from "./context/Store.js";
 import { loadSeller, loadUser } from "./context/actions/user.js";
 import { useSelector } from "react-redux";
@@ -33,9 +37,9 @@ const App = () => {
   const { isSellerloading } = useSelector((state) => state.seller);
 
   useEffect(() => {
-    return async () => {
-      Store.dispatch(loadUser);
+    return () => {
       Store.dispatch(loadSeller);
+      Store.dispatch(loadUser);
     };
   }, []);
 
@@ -58,7 +62,7 @@ const App = () => {
               <Route path="/best-selling" element={<BestSelling />} />
               <Route path="/events" element={<EventsPage />} />
               <Route path="/faq" element={<FAQPage />} />
-              <Route path="/product/:name" element={<ProductPage />} />
+              <Route exact path="/product/:name" element={<ProductPage />} />
               <Route
                 path="/user/activation/:token"
                 element={<ActivationPage />}
@@ -77,6 +81,14 @@ const App = () => {
                 }
               />
               <Route
+                path="/shop/profile"
+                element={
+                  <SellerProtectedRoute>
+                    <SellerProfile />
+                  </SellerProtectedRoute>
+                }
+              />
+              <Route
                 path="/dashboard"
                 element={
                   <SellerProtectedRoute>
@@ -84,6 +96,34 @@ const App = () => {
                   </SellerProtectedRoute>
                 }
               />
+              <Route
+                exact
+                path="/shop/product/new"
+                element={
+                  <SellerProtectedRoute>
+                    <SellerCreateProduct />
+                  </SellerProtectedRoute>
+                }
+              />
+              <Route
+                exact
+                path="/shop/product/all"
+                element={
+                  <SellerProtectedRoute>
+                    <SellerAllProduct />
+                  </SellerProtectedRoute>
+                }
+              />
+              <Route
+                exact
+                path="/shop/create-event"
+                element={
+                  <SellerProtectedRoute>
+                    <SellerCreateEvent />
+                  </SellerProtectedRoute>
+                }
+              />
+
               <Route path="/shop-create" element={<ShopCreatePage />} />
             </Routes>
           </BrowserRouter>

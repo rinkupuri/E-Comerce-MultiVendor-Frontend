@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { server } from "../Server/server";
+import { server } from "../../Server/server";
 import { toast } from "react-toastify";
 
 const SellerActivationPage = () => {

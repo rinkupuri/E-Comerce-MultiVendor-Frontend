@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 const DashboardHeader = () => {
   const { seller } = useSelector((state) => state.seller);
   return (
-    <div className="flex w-full h-full bg-white items-center justify-between">
+    <div className="flex fixed top-0 left-0 w-full h-[70px] bg-white items-center justify-between">
       <div className="flex">
         <img
           src="https://shopo.quomodothemes.website/assets/images/logo.svg"
@@ -33,7 +33,7 @@ const DashboardHeader = () => {
         <Link to={"/dashboard/message"}>
           <BiMessageSquareDetail title="Message" color="#555" size={25} />
         </Link>
-        <Link to={"/dashboard/message"}>
+        <Link to={"/dashboard/profile"}>
           <img
             className="rounded-full w-[30px] h-[30px] object-cover"
             src={`${image_Url}${seller.avatar.url}`}

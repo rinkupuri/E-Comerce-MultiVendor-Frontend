@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import styles from "../Styles/Style";
+import styles from "../../Styles/Style";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { server } from "../Server/server";
+import { server } from "../../Server/server";
 import { toast } from "react-toastify";
 import { CircularProgress } from "@mui/material";
 import { useSelector } from "react-redux";
 
 const Login = () => {
+  console.log("Seller Login");
   const navigate = useNavigate();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();

@@ -11,7 +11,7 @@ import { HiOutlineReceiptRefund } from "react-icons/hi";
 
 const DashboardSideBar = ({ active }) => {
   return (
-    <div className="w-fit h-[90vh] bg-white shadow-sm overflow-y-scroll sticky top-0 left-0 z-10">
+    <div className="fixed top-[70px] left-0 w-[280px] h-[90vh] bg-white shadow-sm overflow-y-scroll  z-10">
       {/* single item */}
       <div className="w-full flex items-center p-4">
         <Link
@@ -36,7 +36,7 @@ const DashboardSideBar = ({ active }) => {
       <div className="w-full flex items-center p-4">
         <Link
           title="All Orders"
-          to="/dashboard-orders"
+          to="/shop/orders"
           className="w-full flex items-center"
         >
           <FiShoppingBag
@@ -56,7 +56,7 @@ const DashboardSideBar = ({ active }) => {
       <div className="w-full flex items-center p-4">
         <Link
           title="All Products"
-          to="/dashboard-products"
+          to="/shop/product/all"
           className="w-full flex items-center"
         >
           <FiPackage size={25} color={`${active === 3 ? "crimson" : "#555"}`} />
@@ -73,7 +73,7 @@ const DashboardSideBar = ({ active }) => {
       <div className="w-full flex items-center p-4">
         <Link
           title="Create Product"
-          to="/dashboard-create-product"
+          to="/shop/product/new"
           className="w-full flex items-center"
         >
           <AiOutlineFolderAdd
@@ -93,7 +93,7 @@ const DashboardSideBar = ({ active }) => {
       <div className="w-full flex items-center p-4">
         <Link
           title="All Events"
-          to="/dashboard-events"
+          to="/shop/events"
           className="w-full flex items-center"
         >
           <MdOutlineLocalOffer
@@ -113,7 +113,7 @@ const DashboardSideBar = ({ active }) => {
       <div className="w-full flex items-center p-4">
         <Link
           title="Create Event"
-          to="/dashboard-create-event"
+          to="/shop/create-event"
           className="w-full flex items-center"
         >
           <VscNewFile
@@ -133,7 +133,7 @@ const DashboardSideBar = ({ active }) => {
       <div className="w-full flex items-center p-4">
         <Link
           title="Withdraw Money"
-          to="/dashboard-withdraw-money"
+          to="/shop/withdraw-money"
           className="w-full flex items-center"
         >
           <CiMoneyBill
@@ -153,7 +153,7 @@ const DashboardSideBar = ({ active }) => {
       <div className="w-full flex items-center p-4">
         <Link
           title="Shop Inbox"
-          to="/dashboard-messages"
+          to="/shop/messages"
           className="w-full flex items-center"
         >
           <BiMessageSquareDetail
@@ -173,7 +173,7 @@ const DashboardSideBar = ({ active }) => {
       <div className="w-full flex items-center p-4">
         <Link
           title="Discount Codes"
-          to="/dashboard-coupouns"
+          to="/shop/coupouns"
           className="w-full flex items-center"
         >
           <AiOutlineGift
@@ -193,7 +193,7 @@ const DashboardSideBar = ({ active }) => {
       <div className="w-full flex items-center p-4">
         <Link
           title="Refunds"
-          to="/dashboard-refunds"
+          to="/shop/refunds"
           className="w-full flex items-center"
         >
           <HiOutlineReceiptRefund
