@@ -88,7 +88,9 @@ router.post("/login", async (req, res, next) => {
   if (!email || !password) {
     return next(new ErroHandler("All Fields are Required", 401));
   }
-  const user = await User.findOne({ email }).select("+password");
+  const user = await User.findOne({
+    $or: [{ email: email }, { name: email }],
+  }).select("+password");
   if (!user) {
     return next(new ErroHandler("User Doen't Exist" + user, 404));
   }
